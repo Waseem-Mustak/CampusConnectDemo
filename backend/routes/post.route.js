@@ -14,8 +14,8 @@ const router = express.Router();
 router.get("/", protectRoutes, getFeedPosts);
 router.post("/create", protectRoutes, createPost);
 router.delete("/delete/:id", protectRoutes, deletePost);
-router.get("/:id", protectRoutes, getPostById);
 router.post("/:id/comment", protectRoutes, createComment);
 router.post("/:id/like", protectRoutes, likePost);
+router.get("/:id", protectRoutes, getPostById);
 
 export default router;

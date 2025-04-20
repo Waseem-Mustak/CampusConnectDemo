@@ -83,26 +83,23 @@ const NotificationsPage = () => {
 			? relatedPost.content.slice(0, 20) + "..."
 			: relatedPost.content;
 
+	
 		return (
 			<Link
 				to={`/post/${relatedPost._id}`}
-				className='mt-2 p-3 bg-gray-50 rounded-md flex hover:bg-gray-100 transition-colors w-full'
+				className='mt-2 p-2 bg-gray-50 rounded-md flex hover:bg-gray-100 transition-colors'
 			>
 				{relatedPost.image && (
-					<img 
-						src={relatedPost.image} 
-						alt='Post preview' 
-						className='w-12 h-12 object-cover rounded mr-3 flex-shrink-0' 
-					/>
+					<img src={relatedPost.image} alt='Post preview' className='w-10 h-10 object-cover rounded mr-2' />
 				)}
 	
-				<div className='flex-1 min-w-0'>
-					<p className='text-sm text-gray-600 break-words whitespace-pre-wrap line-clamp-2'>
+				<div className='flex-1 overflow-hidden'>
+					<p className='text-sm text-gray-600 break-words whitespace-pre-wrap max-h-[6rem] overflow-hidden'>
 						{trimmedText}
 					</p>
 				</div>
 	
-				<ExternalLink size={14} className='text-gray-400 ml-2 mt-1 flex-shrink-0' />
+				<ExternalLink size={14} className='text-gray-400 ml-2 mt-1 shrink-0' />
 			</Link>
 		);
 	};
