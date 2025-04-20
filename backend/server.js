@@ -20,7 +20,7 @@ const __dirname = path.resolve();
 // Configure CORS for both development and production
 app.use(cors({
     origin: process.env.NODE_ENV === "production"
-        ? "https://campusconnectdemo.onrender.com"
+        ? "https://campusconnectdemo-sb51.onrender.com"
         : process.env.CLIENT_URL,
     credentials: true,
 }));
