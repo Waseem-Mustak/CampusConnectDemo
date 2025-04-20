@@ -36,13 +36,15 @@ app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/connections", connectionRoutes);
 
 // Serve static files in production
-// if(process.env.NODE_ENV === "production") {
-//     app.use(express.static(path.join(__dirname, "/frontend/dist")));
+if(process.env.NODE_ENV === "production") {
+    // Serve frontend static files
+    app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
-//     app.get("*", (req, res) => {
-//         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-//     });
-// }
+    // Handle all other routes by serving the index.html
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+    });
+}
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
